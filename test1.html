@@ -1,0 +1,332 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Robotics Concepts Hub</title>
+    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700;900&family=Rajdhani:wght@300;400;500;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --bg: #030712;
+            --card: rgba(15, 23, 42, 0.9);
+            --accent: #3b82f6; 
+            --accent-glow: rgba(59, 130, 246, 0.5);
+            --text: #f3f4f6;
+            --muted: #94a3b8;
+            --border: rgba(59, 130, 246, 0.3);
+            --grid: rgba(59, 130, 246, 0.07);
+        }
+
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+
+        body {
+            background-color: var(--bg);
+            background-image: linear-gradient(var(--grid) 1px, transparent 1px), linear-gradient(90deg, var(--grid) 1px, transparent 1px);
+            background-size: 50px 50px;
+            color: var(--text);
+            min-height: 100vh;
+            font-family: 'Rajdhani', sans-serif;
+            font-size: 1.1rem;
+        }
+
+        h1, h2, h3, .logo, .tab-btn, .node text {
+            font-family: 'Orbitron', sans-serif;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+        }
+
+        nav {
+            position: fixed; top: 0; width: 100%; padding: 1.2rem 8%;
+            display: flex; justify-content: space-between; align-items: center;
+            background: rgba(3, 7, 18, 0.95); backdrop-filter: blur(15px);
+            border-bottom: 1px solid var(--border); z-index: 1000;
+        }
+
+        .logo { font-weight: 900; font-size: 1.4rem; color: #fff; }
+        .logo span { color: var(--accent); }
+
+        .nav-links button {
+            background: transparent; border: none; color: var(--muted);
+            margin-left: 2rem; cursor: pointer; transition: 0.3s; 
+            font-family: 'Orbitron', sans-serif; font-size: 0.8rem; font-weight: 700;
+        }
+
+        .page { display: none; padding: 140px 8% 60px; animation: fadeInUp 0.5s ease-out; }
+        .page.active { display: block; }
+
+        @keyframes fadeInUp {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        .map-container {
+            background: var(--card); border: 1px solid var(--border);
+            border-radius: 30px; padding: 3rem; margin: 2rem 0;
+            box-shadow: 0 0 60px rgba(0,0,0,0.8);
+        }
+
+        svg { width: 100%; height: auto; display: block; }
+        .node { cursor: pointer; }
+        .node circle { fill: #020617; stroke: var(--accent); stroke-width: 2; transition: 0.4s; }
+        .node:hover circle { fill: var(--accent); filter: drop-shadow(0 0 15px var(--accent)); }
+        .node text { fill: white; font-size: 12px; pointer-events: none; }
+        .branch { stroke: var(--border); stroke-width: 2; fill: none; stroke-dasharray: 5; }
+
+        .hero { text-align: center; margin-bottom: 4rem; }
+        .content-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); gap: 2.5rem; }
+        
+        .card {
+            background: var(--card); border: 1px solid var(--border);
+            padding: 2.5rem; border-radius: 24px; transition: 0.3s;
+            height: 100%;
+        }
+        .card h2 { color: var(--accent); font-size: 1.3rem; margin-bottom: 1.5rem; }
+        .card h3 { margin: 1.5rem 0 0.5rem; font-size: 1rem; color: #fff; border-bottom: 1px solid var(--border); display: inline-block; }
+        .card ul { list-style: none; color: var(--muted); line-height: 1.8; }
+        .card li::before { content: "> "; color: var(--accent); font-weight: bold; }
+
+        .tab-wrapper { display: flex; gap: 1rem; margin-bottom: 3rem; justify-content: center; flex-wrap: wrap; }
+        .tab-btn {
+            background: var(--card); border: 1px solid var(--border); color: var(--muted);
+            padding: 0.8rem 2rem; border-radius: 10px; cursor: pointer; transition: 0.3s;
+        }
+        .tab-btn.active { background: var(--accent); color: white; border-color: var(--accent); box-shadow: 0 0 15px var(--accent-glow); }
+
+    </style>
+</head>
+<body>
+
+    <nav>
+        <div class="logo">LEARN<span>ROBOTICS</span></div>
+        <div class="nav-links">
+            <button onclick="showPage('home')">Home</button>
+            <button onclick="showPage('motion')">Motion</button>
+            <button onclick="showPage('joints')">Joints</button>
+            <button onclick="showPage('links')">Links</button>
+            <button onclick="showPage('dof')">DOF</button>
+        </div>
+    </nav>
+
+    <div id="home" class="page active">
+        <div class="hero">
+            <h1>Concept in <span>Robotics</span></h1>
+            <p style="color: var(--muted)">Interactive roadmap for kinematic and structural foundations.</p>
+        </div>
+        <div class="map-container">
+            <svg viewBox="0 0 800 400">
+                <path class="branch" d="M400 200 L150 100 M400 200 L650 100 M400 200 L250 320 M400 200 L550 320" />
+                <g class="node" onclick="showPage('home')">
+                    <circle cx="400" cy="200" r="70" />
+                    <text x="400" y="205" text-anchor="middle">CONCEPT IN ROBOTICS</text>
+                </g>
+                <g class="node" onclick="showPage('motion')">
+                    <circle cx="150" cy="100" r="45" />
+                    <text x="150" y="105" text-anchor="middle">MOTION</text>
+                </g>
+                <g class="node" onclick="showPage('joints')">
+                    <circle cx="650" cy="100" r="45" />
+                    <text x="650" y="105" text-anchor="middle">JOINTS</text>
+                </g>
+                <g class="node" onclick="showPage('links')">
+                    <circle cx="250" cy="320" r="45" />
+                    <text x="250" y="325" text-anchor="middle">LINKS</text>
+                </g>
+                <g class="node" onclick="showPage('dof')">
+                    <circle cx="550" cy="320" r="45" />
+                    <text x="550" y="325" text-anchor="middle">DOF</text>
+                </g>
+            </svg>
+        </div>
+    </div>
+
+    <div id="motion" class="page">
+        <h1 class="hero">Motion <span>Categories</span></h1>
+        <div class="tab-wrapper">
+            <button class="tab-btn active" onclick="switchMotion('linear', this)">Linear Motion</button>
+            <button class="tab-btn" onclick="switchMotion('angular', this)">Angular Motion</button>
+            <button class="tab-btn" onclick="switchMotion('circular', this)">Circular Motion</button>
+        </div>
+
+        <div id="linear-content" class="motion-view">
+            <div class="content-grid">
+                <div class="card">
+                    <h2>Linear Motion</h2>
+                    <h3>Dimensions</h3>
+                    <ul>
+                        <li><strong>One Dimensional:</strong> Pure translation along a single straight line axis (e.g., a sliding rail).</li>
+                        <li><strong>Two Dimensional:</strong> Movement across a planar surface, combining two axes (e.g., X and Y movement).</li>
+                    </ul>
+                </div>
+                <div class="card">
+                    <h2>Analysis</h2>
+                    <h3>Characteristics</h3>
+                    <ul>
+                        <li>Velocity vectors remain parallel.</li>
+                        <li>No rotational change in the body's orientation.</li>
+                        <li>Path is represented by straight lines.</li>
+                    </ul>
+                </div>
+                <div class="card">
+                    <h2>Practicality</h2>
+                    <h3>Applications</h3>
+                    <ul>
+                        <li>Gantry robot systems.</li>
+                        <li>Telescopic actuators.</li>
+                        <li>Pick and place Cartesian robots.</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+        <div id="angular-content" class="motion-view" style="display:none">
+            <div class="content-grid">
+                <div class="card">
+                    <h2>Angular Motion</h2>
+                    <h3>Characteristics</h3>
+                    <ul>
+                        <li>Body revolves around a fixed point or axis.</li>
+                        <li>Orientation changes relative to the frame.</li>
+                        <li>Measured in Angular Displacement (Radians/Degrees).</li>
+                    </ul>
+                </div>
+                <div class="card">
+                    <h2>Practicality</h2>
+                    <h3>Applications</h3>
+                    <ul>
+                        <li>Rotary joints in industrial arms.</li>
+                        <li>Camera pan/tilt mechanisms.</li>
+                        <li>Orientation alignment for satellites.</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+        <div id="circular-content" class="motion-view" style="display:none">
+            <div class="content-grid">
+                <div class="card">
+                    <h2>Circular Motion</h2>
+                    <h3>Characteristics</h3>
+                    <ul>
+                        <li>Path is a circle with a fixed radius.</li>
+                        <li>Involves centripetal acceleration toward the center.</li>
+                        <li>Angular velocity is constant in uniform circular motion.</li>
+                    </ul>
+                </div>
+                <div class="card">
+                    <h2>Practicality</h2>
+                    <h3>Applications</h3>
+                    <ul>
+                        <li>Wheeled robot steering and movement.</li>
+                        <li>Scanning LiDAR sensors.</li>
+                        <li>Pulley and belt drive systems.</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div id="joints" class="page">
+        <h1 class="hero">Joint <span>Architectures</span></h1>
+        <div class="content-grid">
+            <div class="card">
+                <h2>Prismatic Joints</h2>
+                <h3>Characteristics</h3>
+                <ul>
+                    <li>Sliding / Translational motion between links.</li>
+                    <li>Restricts rotation entirely.</li>
+                </ul>
+                <h3>Advantages</h3>
+                <ul>
+                    <li>High mechanical rigidity.</li>
+                    <li>Precise linear tracking.</li>
+                </ul>
+            </div>
+            <div class="card">
+                <h2>Revolute Joints</h2>
+                <h3>Characteristics</h3>
+                <ul>
+                    <li>Rotational movement around a hinge.</li>
+                    <li>Primary joint for articulated arms.</li>
+                </ul>
+                <h3>Advantages</h3>
+                <ul>
+                    <li>Wide range of motion.</li>
+                    <li>Compact and easy to actuate.</li>
+                </ul>
+            </div>
+            <div class="card">
+                <h2>Spherical Joints</h2>
+                <h3>Characteristics</h3>
+                <ul>
+                    <li>Ball-and-socket type movement.</li>
+                    <li>Provides 3 Rotational Degrees of Freedom.</li>
+                </ul>
+                <h3>Advantages</h3>
+                <ul>
+                    <li>High dexterity in a small space.</li>
+                    <li>Mimics biological joint systems.</li>
+                </ul>
+            </div>
+        </div>
+    </div>
+
+    <div id="links" class="page">
+        <h1 class="hero">Structural <span>Links</span></h1>
+        <div class="content-grid">
+            <div class="card">
+                <h2>Rigid Link</h2>
+                <h3>Characteristics</h3>
+                <ul>
+                    <li>Deformation is negligible under standard load.</li>
+                    <li>Fixed length and volume.</li>
+                </ul>
+                <h3>Advantages</h3>
+                <ul>
+                    <li>Easier kinematic modeling.</li>
+                    <li>Consistent positioning accuracy.</li>
+                </ul>
+            </div>
+            <div class="card">
+                <h2>Soft Link</h2>
+                <h3>Characteristics</h3>
+                <ul>
+                    <li>Flexible, compliant materials.</li>
+                    <li>Changes shape based on environmental pressure.</li>
+                </ul>
+                <h3>Advantages</h3>
+                <ul>
+                    <li>Safe for direct human interaction.</li>
+                    <li>Grasping irregular or fragile objects.</li>
+                </ul>
+            </div>
+        </div>
+    </div>
+
+    <div id="dof" class="page">
+        <h1 class="hero">Degree of <span>Freedom</span></h1>
+        <div class="card" style="max-width: 800px; margin: 0 auto;">
+            <h2>Core Concepts</h2>
+            <ul>
+                <li><strong>Definition:</strong> The number of independent parameters defining a robot's configuration.</li>
+                <li><strong>Free Space:</strong> A body in 3D space has 6 DOF (3 linear, 3 rotational).</li>
+                <li><strong>Joint Impact:</strong> Each joint reduces total DOF to provide controlled, predictable motion paths.</li>
+            </ul>
+        </div>
+    </div>
+
+    <script>
+        function showPage(id) {
+            document.querySelectorAll('.page').forEach(p => p.classList.remove('active'));
+            document.getElementById(id).classList.add('active');
+            window.scrollTo({top: 0, behavior: 'smooth'});
+        }
+
+        function switchMotion(type, btn) {
+            document.querySelectorAll('.motion-view').forEach(v => v.style.display = 'none');
+            document.querySelectorAll('.tab-btn').forEach(b => b.classList.remove('active'));
+            document.getElementById(type + '-content').style.display = 'block';
+            btn.classList.add('active');
+        }
+    </script>
+</body>
+</html>
