@@ -108,7 +108,7 @@
 <body>
 
     <nav>
-        <div class="logo">ROBOTICES<span> PROJECT 9K</span></div>
+        <div class="logo">ROBOTICS<span> PROJECT 9K</span></div>
         <div class="nav-links">
             <button onclick="showPage('home')">Home</button>
             <button onclick="showPage('motion')">Motion</button>
@@ -288,39 +288,118 @@
     </div>
 
     <div id="joints" class="page">
-        <h1 class="hero">Joint <span>Architectures (Report by Muhammad Aariz) </span></h1>
+        <h1 class="hero">The Mechanics of Motion <span>(Report by Muhammad Aariz IX - K)</span></h1>
+        
+        <div class="card" style="margin-bottom: 2.5rem;">
+            <h2>The Building Blocks</h2>
+            <p style="color: var(--muted); line-height: 1.6; font-size: 1.15rem;">
+                Every complex robotic movement, from a factory line to a surgical suite, is constructed using just three core joint types. Every robotic movement is built upon <strong>Degrees of Freedom (DoF)</strong>, which represent the specific independent directions a joint allows a machine to move or rotate.
+            </p>
+        </div>
 
-        <div class="content-grid">
+        <div class="content-grid" style="margin-bottom: 3rem;">
             <div class="card">
                 <h2>Prismatic Joints</h2>
-                <h3>Characteristics</h3>
-                <ul><li>Sliding / Translational motion between links.</li><li>Restricts rotation entirely.</li></ul>
-                <h3>Advantages</h3>
-                <ul><li>High mechanical rigidity.</li><li>Precise linear tracking.</li></ul>
+                <p style="color: var(--muted); margin-bottom: 1rem;">Prismatic joints drive precise, straight-line extension, acting as the foundation of linear tracking rails.</p>
+                
+                <div class="metric-box" style="margin-bottom: 1rem; border-color: #3b82f6;">
+                    <span>Engineering Spec Card</span>
+                    <p><strong>DoF:</strong> 1 (Linear Displacement)<br><strong>Motion:</strong> Straight Line (Forward / Backward)</p>
+                </div>
+                
+                <h3>Key Traits</h3>
+                <ul>
+                    <li>High rigidity and mechanical stability.</li>
+                    <li>Prioritizes linear force and payload bearing over rotational dexterity.</li>
+                </ul>
+                
+                <h3>Bio-Equivalent & Use</h3>
+                <p style="color: var(--muted); font-size: 0.95rem; margin-top: 0.5rem;">No direct biological equivalent. Deployed globally in gantry cranes, track systems, and telescopic structural extensions.</p>
             </div>
+
             <div class="card">
                 <h2>Revolute Joints</h2>
-                <h3>Characteristics</h3>
-                <ul><li>Rotational movement around a hinge.</li><li>Primary joint for articulated arms.</li></ul>
-                <h3>Advantages</h3>
-                <ul><li>Wide range of motion.</li><li>Compact and easy to actuate.</li></ul>
+                <p style="color: var(--muted); margin-bottom: 1rem;">Revolute joints serve as the mechanical workhorses of assembly, producing angular rotations.</p>
+                
+                <div class="metric-box" style="margin-bottom: 1rem; border-color: #eab308;">
+                    <span>Engineering Spec Card</span>
+                    <p><strong>DoF:</strong> 1 (Angular Sweep)<br><strong>Motion:</strong> Single-Axis Rotation (Pivot Paths)</p>
+                </div>
+                
+                <h3>Key Traits</h3>
+                <ul>
+                    <li>Wide operational sweeping boundaries.</li>
+                    <li>Compact mechanical configuration, easily paired with rotary motors.</li>
+                </ul>
+                
+                <h3>Bio-Equivalent & Use</h3>
+                <p style="color: var(--muted); font-size: 0.95rem; margin-top: 0.5rem;">Mimics the human knee and elbow. Universally deployed at the shoulder, elbow, and wrist joints of articulated industrial arms.</p>
             </div>
+
             <div class="card">
                 <h2>Spherical Joints</h2>
-                <h3>Characteristics</h3>
-                <ul><li>Ball-and-socket type movement.</li><li>Provides 3 Rotational Degrees of Freedom.</li></ul>
-                <h3>Advantages</h3>
-                <ul><li>High dexterity in a small space.</li><li>Mimics biological joint systems.</li></ul>
+                <p style="color: var(--muted); margin-bottom: 1rem;">Spherical joints unlock fluid, three-dimensional spatial orientations through complex configurations.</p>
+                
+                <div class="metric-box" style="margin-bottom: 1rem; border-color: #10b981;">
+                    <span>Engineering Spec Card</span>
+                    <p><strong>DoF:</strong> 3 (Multi-directional Orientation)<br><strong>Motion:</strong> Pitch, Roll, and Yaw Rotations</p>
+                </div>
+                
+                <h3>Key Traits</h3>
+                <ul>
+                    <li>Maximum operational flexibility and omni-directional rotation pathways.</li>
+                    <li>Prioritizes comprehensive tracking fluid dexterity over raw force capacity.</li>
+                </ul>
+                
+                <h3>Bio-Equivalent & Use</h3>
+                <p style="color: var(--muted); font-size: 0.95rem; margin-top: 0.5rem;">Replicates human ball-and-socket hips and shoulders. Critical for drone gimbals, surgical robotics, and stabilizing modules.</p>
             </div>
+        </div>
+
+        <h2 style="font-family: 'Orbitron'; font-size: 1.2rem; color: var(--accent); margin-bottom: 1.5rem;">Joint Integration & Comparison Matrix</h2>
+        <div class="card" style="margin-bottom: 2.5rem;">
+            <p style="color: var(--muted); line-height: 1.6; margin-bottom: 1.5rem;">
+                True robotic complexity comes from chaining simple joints together. By linking Prismatic, Revolute, and Spherical assemblies in series, engineers can build highly dextrous multi-axis systems capable of manipulating tools through complex 3D tracking vectors.
+            </p>
+            <table class="app-table">
+                <thead>
+                    <tr>
+                        <th>Joint Category</th>
+                        <th>Degrees of Freedom (DoF)</th>
+                        <th>Biological Equivalent</th>
+                        <th>Primary Optimization Focus</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td><strong>Prismatic Axis</strong></td>
+                        <td>1 (Linear Motion)</td>
+                        <td>None / Mechanical Rail</td>
+                        <td>Precise forward/backward extension profiles and structural load containment.</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Revolute Hinge</strong></td>
+                        <td>1 (Angular Rotation)</td>
+                        <td>Human Knee / Elbow</td>
+                        <td>Broad sweeping angular trajectories and high-speed multi-link articulation.</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Spherical Assembly</strong></td>
+                        <td>3 (Multi-axis Orientation)</td>
+                        <td>Human Shoulder / Hip</td>
+                        <td>Fluid 3D orientation tracking across Pitch, Roll, and Yaw coordinate fields.</td>
+                    </tr>
+                </tbody>
+            </table>
         </div>
     </div>
 
     <div id="links" class="page">
-        <h1 class="hero">Understanding <span>Links (Report by Ansh Chaudhary</span></h1>
+        <h1 class="hero">Understanding <span>Links (Report by Ansh Chaudhary)</span></h1>
 
         <div class="card" style="margin-bottom: 2.5rem;">
             <h2>Kinematic Definition</h2>
-            <p style="color: var(--muted); line-height: 1.6;">A <strong>Link</strong> (kinematic element) is defined as a single, structurally rigid body (or a collection of rigidly connected bodies) within a robot that possesses relative motion with respect to other components. Links interconnect via joints to form <strong>kinematic chains</strong>.</p>
+            <p style="color: var(--muted); line-height: 1.6;">A <strong>Link</strong> (kinematic element) is defined as a single, structurally rigid body (or a collection of rigidly connected bodies) within a robot that possesses relative motion with respect to other components of the robotic system. Links do not act independently; they interconnect via joints to form <strong>kinematic chains</strong>.</p>
         </div>
 
         <h2 style="font-family: 'Orbitron'; font-size: 1.2rem; color: var(--accent); margin-bottom: 1.5rem;">Conceptual Mindmap Framework</h2>
@@ -435,15 +514,114 @@
     </div>
 
     <div id="dof" class="page">
-        <h1 class="hero">Degree of <span>Freedom (Report of Pranav Manglani) </span></h1>
+        <h1 class="hero">Degree of <span>Freedom (Report of Pranav Manglani)</span></h1>
+        
+        <div class="card" style="margin-bottom: 2.5rem;">
+            <h2>Official Kinematic Definition</h2>
+            <p style="color: var(--muted); line-height: 1.6; font-size: 1.15rem;">
+                <strong>Degree of Freedom (DOF)</strong> is defined as the number of independent parameters or coordinates required to completely and unambiguously define the physical configuration, spatial orientation, and mechanical position of a robot in three-dimensional space.
+            </p>
+        </div>
 
-        <div class="card" style="max-width: 800px; margin: 0 auto;">
-            <h2>Core Concepts</h2>
-            <ul>
-                <li><strong>Definition:</strong> The number of independent parameters defining a robot's configuration.</li>
-                <li><strong>Free Space:</strong> A body in 3D space has 6 DOF (3 linear, 3 rotational).</li>
-                <li><strong>Joint Impact:</strong> Each joint reduces total DOF to provide controlled, predictable motion paths.</li>
-            </ul>
+        <h2 style="font-family: 'Orbitron'; font-size: 1.2rem; color: var(--accent); margin-bottom: 1.5rem;">Robotics DOF Conceptual Framework</h2>
+        <div class="content-grid" style="margin-bottom: 3.5rem;">
+            <div class="card">
+                <h3>1. Core Framework</h3>
+                <ul>
+                    <li>Free Space Parameters (6 DOF).</li>
+                    <li>Mechanical Joint Constraints.</li>
+                    <li>Kinematic Loop Configurations.</li>
+                </ul>
+            </div>
+            <div class="card">
+                <h3>2. Operational Categories</h3>
+                <ul>
+                    <li>Lower DOF Systems (1-3 DOF).</li>
+                    <li>Higher DOF Systems (4-6 DOF).</li>
+                    <li>Kinematic Redundancy (7+ DOF).</li>
+                </ul>
+            </div>
+            <div class="card">
+                <h3>3. Engineering Attributes</h3>
+                <ul>
+                    <li>Multi-Axis Tracking Matrices.</li>
+                    <li>Feedback Loop Inversions.</li>
+                    <li>Sensor Synchronization Schemes.</li>
+                </ul>
+            </div>
+            <div class="card">
+                <h3>4. Real-World Applications</h3>
+                <ul>
+                    <li>Planar Pick & Place Sorting.</li>
+                    <li>Articulated Welding Stations.</li>
+                    <li>Obstacle-Bypassing Automation.</li>
+                </ul>
+            </div>
+        </div>
+
+        <h2 style="font-family: 'Orbitron'; font-size: 1.2rem; color: var(--accent); margin-bottom: 1.5rem;">Detailed Concept Analysis</h2>
+        <div class="content-grid" style="margin-bottom: 3.5rem;">
+            
+            <div class="card">
+                <h2>1. Core Framework</h2>
+                <p style="color: var(--muted); margin-bottom: 1rem;">Establishes how independent variables change within unconstrained and structurally restricted coordinate domains.</p>
+                <ul>
+                    <li><strong>Free Space Dynamics:</strong> Any completely unconstrained solid body traveling in empty 3D space exhibits 6 DOF (3 translational coordinates along X, Y, Z axes + 3 rotational orientations across Pitch, Roll, Yaw vectors).</li>
+                    <li><strong>Mechanical Constraints:</strong> Adding a mechanical joint assembly structurally restricts motion pathways, reducing the system's operational parameters to force highly predictable tracking profiles.</li>
+                </ul>
+            </div>
+
+            <div class="card">
+                <h2>2. Operational Categories</h2>
+                <p style="color: var(--muted); margin-bottom: 1rem;">Groups industrial systems according to the raw numbers of independent actuable coordinates they control.</p>
+                <ul>
+                    <li><strong>Lower DOF Systems:</strong> Operations restricted to 1-3 independent coordinates, typically executing highly repetitive tasks over fixed coordinate areas.</li>
+                    <li><strong>Higher DOF Systems:</strong> Configurations wielding 4-6 parameters that unlock complex spatial orientation adjustments, ideal for highly articulated tool adjustments.</li>
+                </ul>
+            </div>
+
+            <div class="card">
+                <h2>3. Engineering Attributes</h2>
+                <p style="color: var(--muted); margin-bottom: 1rem;">The software and electronic integration required to compute real-time structural variations.</p>
+                <ul>
+                    <li><strong>Axis Tracking Profiles:</strong> Complex computing matrices mapping individual coordinate displacements continuously against a fixed industrial baseline system.</li>
+                    <li><strong>Sensor Synchronization:</strong> Real-time hardware encoders monitoring structural joint changes to update target profiles inside automated loop software.</li>
+                </ul>
+            </div>
+        </div>
+
+        <h2 style="font-family: 'Orbitron'; font-size: 1.2rem; color: var(--accent); margin-bottom: 1.5rem;">4. Real-World Application Summary</h2>
+        <div class="card">
+            <table class="app-table">
+                <thead>
+                    <tr>
+                        <th>System Configuration</th>
+                        <th>DOF Level</th>
+                        <th>Primary Mechanical Material</th>
+                        <th>AI/Robotics Application Purpose</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td><strong>SCARA Sorting Assembly</strong></td>
+                        <td>Lower DOF (3 Axis)</td>
+                        <td>Extruded Aluminum & Carbon Steel</td>
+                        <td>High-speed planar pick-and-place tracking; rapid sorting across static surface coordinates.</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Articulated Manufacturing</strong></td>
+                        <td>Higher DOF (6 Axis)</td>
+                        <td>Cast Iron & High-Grade Steel Alloys</td>
+                        <td>Automotive factory spot-welding and spray applications requiring comprehensive tool re-orientation.</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Redundant Kinematic Arm</strong></td>
+                        <td>Redundant (7+ Axis)</td>
+                        <td>Titanium & Aerospace Composite Units</td>
+                        <td>Obstacle-bypassing path planning; snaking through crowded task spaces without altering tool-point targets.</td>
+                    </tr>
+                </tbody>
+            </table>
         </div>
     </div>
 
