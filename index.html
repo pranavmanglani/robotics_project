@@ -97,28 +97,6 @@
         .app-table th { text-align: left; color: var(--accent); border-bottom: 1px solid var(--border); padding: 12px 10px; font-family: 'Orbitron'; font-size: 0.8rem; }
         .app-table td { padding: 12px 10px; border-bottom: 1px solid rgba(255,255,255,0.05); }
 
-        /* Integrated Image Component Styles */
-        .category-image-container {
-            width: 100%;
-            max-width: 600px;
-            margin: 0 auto 2.5rem;
-            border: 1px solid var(--border);
-            border-radius: 16px;
-            overflow: hidden;
-            background: rgba(0, 0, 0, 0.4);
-            box-shadow: 0 8px 24px rgba(0, 0, 0, 0.5);
-        }
-        .category-image {
-            width: 100%;
-            height: auto;
-            display: block;
-            opacity: 0.85;
-            transition: opacity 0.3s ease;
-        }
-        .category-image:hover {
-            opacity: 1;
-        }
-
         /* Metric Grid Row */
         .metric-row { display: grid; grid-template-columns: 1fr 1fr; gap: 1.5rem; margin-top: 1rem; }
         .metric-box { background: rgba(255,255,255,0.02); border-left: 3px solid var(--accent); padding: 0.8rem 1rem; border-radius: 4px; }
@@ -309,7 +287,9 @@
         </div>
     </div>
 
-  
+    <div id="joints" class="page">
+        <h1 class="hero">Joint <span>Architectures</span></h1>
+
         <div class="content-grid">
             <div class="card">
                 <h2>Prismatic Joints</h2>
@@ -337,7 +317,7 @@
 
     <div id="links" class="page">
         <h1 class="hero">Understanding <span>Links</span></h1>
-       
+
         <div class="card" style="margin-bottom: 2.5rem;">
             <h2>Kinematic Definition</h2>
             <p style="color: var(--muted); line-height: 1.6;">A <strong>Link</strong> (kinematic element) is defined as a single, structurally rigid body (or a collection of rigidly connected bodies) within a robot that possesses relative motion with respect to other components. Links interconnect via joints to form <strong>kinematic chains</strong>.</p>
@@ -456,9 +436,7 @@
 
     <div id="dof" class="page">
         <h1 class="hero">Degree of <span>Freedom</span></h1>
-        
-        <div class="category-image-container">
-            
+
         <div class="card" style="max-width: 800px; margin: 0 auto;">
             <h2>Core Concepts</h2>
             <ul>
