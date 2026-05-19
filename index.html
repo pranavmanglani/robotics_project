@@ -92,17 +92,45 @@
         }
         .tab-btn.active { background: var(--accent); color: white; border-color: var(--accent); box-shadow: 0 0 15px var(--accent-glow); }
         
-        /* Table Styles for Links */
+        /* Table Styles */
         .app-table { width: 100%; border-collapse: collapse; margin-top: 1rem; color: var(--muted); font-size: 0.95rem; }
-        .app-table th { text-align: left; color: var(--accent); border-bottom: 1px solid var(--border); padding: 10px; font-family: 'Orbitron'; font-size: 0.8rem; }
-        .app-table td { padding: 10px; border-bottom: 1px solid rgba(255,255,255,0.05); }
+        .app-table th { text-align: left; color: var(--accent); border-bottom: 1px solid var(--border); padding: 12px 10px; font-family: 'Orbitron'; font-size: 0.8rem; }
+        .app-table td { padding: 12px 10px; border-bottom: 1px solid rgba(255,255,255,0.05); }
+
+        /* Integrated Image Component Styles */
+        .category-image-container {
+            width: 100%;
+            max-width: 600px;
+            margin: 0 auto 2.5rem;
+            border: 1px solid var(--border);
+            border-radius: 16px;
+            overflow: hidden;
+            background: rgba(0, 0, 0, 0.4);
+            box-shadow: 0 8px 24px rgba(0, 0, 0, 0.5);
+        }
+        .category-image {
+            width: 100%;
+            height: auto;
+            display: block;
+            opacity: 0.85;
+            transition: opacity 0.3s ease;
+        }
+        .category-image:hover {
+            opacity: 1;
+        }
+
+        /* Metric Grid Row */
+        .metric-row { display: grid; grid-template-columns: 1fr 1fr; gap: 1.5rem; margin-top: 1rem; }
+        .metric-box { background: rgba(255,255,255,0.02); border-left: 3px solid var(--accent); padding: 0.8rem 1rem; border-radius: 4px; }
+        .metric-box span { display: block; color: #fff; font-size: 1.1rem; font-weight: 600; margin-bottom: 0.2rem; }
+        .metric-box p { font-size: 0.9rem; color: var(--muted); margin: 0; }
 
     </style>
 </head>
 <body>
 
     <nav>
-        <div class="logo">ROBOTICS<span>PROJECT 9K</span></div>
+        <div class="logo">LEARN<span>ROBOTICS</span></div>
         <div class="nav-links">
             <button onclick="showPage('home')">Home</button>
             <button onclick="showPage('motion')">Motion</button>
@@ -146,6 +174,10 @@
 
     <div id="motion" class="page">
         <h1 class="hero">Motion <span>Categories</span></h1>
+        <p style="color: var(--muted); text-align: center; max-width: 700px; margin: -2.5rem auto 3rem; line-height: 1.6;">
+            Robotic motion bridges the gap between digital instructions and physical reality. All movement is built from three fundamental kinematic trajectories managed across software interfaces and environmental loops.
+        </p>
+
         <div class="tab-wrapper">
             <button class="tab-btn active" onclick="switchMotion('linear', this)">Linear Motion</button>
             <button class="tab-btn" onclick="switchMotion('angular', this)">Angular Motion</button>
@@ -153,77 +185,124 @@
         </div>
 
         <div id="linear-content" class="motion-view">
-            <div class="content-grid">
+            <div class="content-grid" style="margin-bottom: 3rem;">
                 <div class="card">
-                    <h2>Linear Motion</h2>
-                    <h3>Dimensions</h3>
-                    <ul>
-                        <li><strong>One Dimensional:</strong> Pure translation along a single straight line axis (e.g., a sliding rail).</li>
-                        <li><strong>Two Dimensional:</strong> Movement across a planar surface, combining two axes (e.g., X and Y movement).</li>
-                    </ul>
+                    <h2>Linear Trajectories</h2>
+                    <p style="color: var(--muted); margin-bottom: 1rem;">Governs straight-line travel across physical space to achieve precise placement and speed control.</p>
+                    <div class="metric-row">
+                        <div class="metric-box">
+                            <span>One-Dimensional (1D)</span>
+                            <p>Movement along a single axis (X, Y, or Z). Essential for targeted extensions.</p>
+                        </div>
+                        <div class="metric-box">
+                            <span>Two-Dimensional (2D)</span>
+                            <p>Simultaneous multi-axis movement. Enables flat area planar navigation.</p>
+                        </div>
+                    </div>
                 </div>
                 <div class="card">
-                    <h2>Analysis</h2>
-                    <h3>Characteristics</h3>
+                    <h2>Mechanical Actuation</h2>
+                    <p style="color: var(--muted); margin-bottom: 1rem;">Translates high-speed rotational energy into smooth, linear push/pull force vectors.</p>
                     <ul>
-                        <li>Velocity vectors remain parallel.</li>
-                        <li>No rotational change in the body's orientation.</li>
-                    <li>Path is represented by straight lines.</li>
+                        <li><strong>Driving Forces:</strong> Electric motors and precise hydraulic cylinders.</li>
+                        <li><strong>Conversion Mechanisms:</strong> Ball screws, helical gears, and synchronized belt units.</li>
+                        <li><strong>Guide Rails:</strong> Minimize friction and completely prevent side-to-side lateral deviations.</li>
                     </ul>
                 </div>
-                <div class="card">
-                    <h2>Practicality</h2>
-                    <h3>Applications</h3>
-                    <ul>
-                        <li>Gantry robot systems.</li>
-                        <li>Telescopic actuators.</li>
-                        <li>Pick and place Cartesian robots.</li>
-                    </ul>
-                </div>
+            </div>
+
+            <h2 style="font-family: 'Orbitron'; font-size: 1.2rem; color: var(--accent); margin-bottom: 1.5rem;">Linear System Breakdown</h2>
+            <div class="card">
+                <table class="app-table">
+                    <thead>
+                        <tr>
+                            <th>Application Focus</th>
+                            <th>Dimensional Tracking</th>
+                            <th>Industrial Execution Role</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td><strong>Robotic Arms & Assembly</strong></td>
+                            <td>2D Plane Extensions</td>
+                            <td>High-accuracy execution for pick-and-place, spray painting, and spot welding.</td>
+                        </tr>
+                        <tr>
+                            <td><strong>3D Printers</strong></td>
+                            <td>3D Space (X, Y, Z coordinates)</td>
+                            <td>Moving printing heads and build platforms linearly to stack physical substrate layers.</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Conveyors & Logistics</strong></td>
+                            <td>1D/2D Spatial Operations</td>
+                            <td>Transporting inventory through warehouses while managing multi-axis obstacle zones.</td>
+                        </tr>
+                    </tbody>
+                </table>
             </div>
         </div>
 
         <div id="angular-content" class="motion-view" style="display:none">
-            <div class="content-grid">
+            <div class="content-grid" style="margin-bottom: 3rem;">
                 <div class="card">
-                    <h2>Angular Motion</h2>
-                    <h3>Characteristics</h3>
+                    <h2>Angular Trajectories</h2>
+                    <p style="color: var(--muted); margin-bottom: 1rem;">Manipulates the orientation of connected structures around fixed coordinate pivot locations.</p>
                     <ul>
-                        <li>Body revolves around a fixed point or axis.</li>
-                        <li>Orientation changes relative to the frame.</li>
-                        <li>Measured in Angular Displacement (Radians/Degrees).</li>
+                        <li><strong>Core Mechanics:</strong> Changes the specific geometry angles between two neighboring robotic link segments.</li>
+                        <li><strong>Pivot Tracking:</strong> Relative motion changes compared continuously against the system's baseline frame.</li>
                     </ul>
                 </div>
                 <div class="card">
-                    <h2>Practicality</h2>
-                    <h3>Applications</h3>
+                    <h2>Actuation Dynamics</h2>
+                    <p style="color: var(--muted); margin-bottom: 1rem;">Motors positioned at isolated rotational axes manage localized bending and link manipulation properties.</p>
                     <ul>
-                        <li>Rotary joints in industrial arms.</li>
-                        <li>Camera pan/tilt mechanisms.</li>
-                        <li>Orientation alignment for satellites.</li>
+                        <li><strong>Independent Control:</strong> Precision actuators compute target angles at individual structural junctions.</li>
+                        <li><strong>System Flexibility:</strong> Empowers manipulators to snake around path obstructions and fold tightly to conserve space.</li>
                     </ul>
                 </div>
+            </div>
+
+            <h2 style="font-family: 'Orbitron'; font-size: 1.2rem; color: var(--accent); margin-bottom: 1.5rem;">Spatial Freedom Configuration</h2>
+            <div class="card">
+                <h2>Degrees of Freedom (DOF) Blueprint</h2>
+                <p style="color: var(--muted); margin-bottom: 1.5rem;">Degrees of freedom define a joint configuration's complex spatial rotation capacity through dedicated orientation pathways.</p>
+                <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 1.5rem;">
+                    <div class="metric-box" style="border-color: #f43f5e;">
+                        <span>Pitch Rotations</span>
+                        <p>Upward and downward angular adjustments around the local transverse axis.</p>
+                    </div>
+                    <div class="metric-box" style="border-color: #eab308;">
+                        <span>Roll Rotations</span>
+                        <p>Continuous longitudinal rotations along the centerline orientation path.</p>
+                    </div>
+                    <div class="metric-box" style="border-color: #10b981;">
+                        <span>Yaw Rotations</span>
+                        <p>Side-to-side sweeping configurations navigating the vertical axis loop.</p>
+                    </div>
+                </div>
+                <p style="color: var(--muted); font-size: 0.95rem; margin-top: 1.5rem; border-top: 1px solid var(--border); padding-top: 1rem;">
+                    <strong>The Operational Outcome:</strong> Integrating layered combinations of Pitch, Roll, and Yaw variations allows high-DOF robots to complete highly elaborate tasks across unpredictable environments.
+                </p>
             </div>
         </div>
 
         <div id="circular-content" class="motion-view" style="display:none">
             <div class="content-grid">
                 <div class="card">
-                    <h2>Circular Motion</h2>
-                    <h3>Characteristics</h3>
+                    <h2>Circular Motion Trajectories</h2>
+                    <p style="color: var(--muted); margin-bottom: 1rem;">Built upon orbiting paths locked at fixed coordinate distances relative to central pivot baselines.</p>
                     <ul>
-                        <li>Path is a circle with a fixed radius.</li>
-                        <li>Involves centripetal acceleration toward the center.</li>
-                        <li>Angular velocity is constant in uniform circular motion.</li>
+                        <li><strong>Centripetal Constraints:</strong> Continuous acceleration adjustments maintain stable circular trajectories.</li>
+                        <li><strong>Velocity Regulation:</strong> Uniform tracking profiles use static rotational speeds for spatial consistency.</li>
                     </ul>
                 </div>
                 <div class="card">
-                    <h2>Practicality</h2>
-                    <h3>Applications</h3>
+                    <h2>Operational Applications</h2>
+                    <h3>Real-World Execution</h3>
                     <ul>
-                        <li>Wheeled robot steering and movement.</li>
-                        <li>Scanning LiDAR sensors.</li>
-                        <li>Pulley and belt drive systems.</li>
+                        <li>Wheeled locomotion chassis steering paths and skid-steer transitions.</li>
+                        <li>Scanning LiDAR sensor sweeps completing continuous multi-layer mapping fields.</li>
+                        <li>Pulley systems and synchronous belts transmitting steady rotational velocity profiles.</li>
                     </ul>
                 </div>
             </div>
@@ -232,6 +311,11 @@
 
     <div id="joints" class="page">
         <h1 class="hero">Joint <span>Architectures</span></h1>
+        
+        <div class="category-image-container">
+            <img src="joints.jpg" alt="Joint Architectures Diagram" class="category-image">
+        </div>
+
         <div class="content-grid">
             <div class="card">
                 <h2>Prismatic Joints</h2>
@@ -260,6 +344,10 @@
     <div id="links" class="page">
         <h1 class="hero">Understanding <span>Links</span></h1>
         
+        <div class="category-image-container">
+            <img src="link.png" alt="Robotics Links Structural Diagram" class="category-image">
+        </div>
+
         <div class="card" style="margin-bottom: 2.5rem;">
             <h2>Kinematic Definition</h2>
             <p style="color: var(--muted); line-height: 1.6;">A <strong>Link</strong> (kinematic element) is defined as a single, structurally rigid body (or a collection of rigidly connected bodies) within a robot that possesses relative motion with respect to other components. Links interconnect via joints to form <strong>kinematic chains</strong>.</p>
@@ -270,33 +358,33 @@
             <div class="card">
                 <h3>1. Classifications</h3>
                 <ul>
-                    <li>Rigid Links[ : 18].</li>
-                    <li>Flexible Links[ : 20].</li>
-                    <li>Floating Links[ : 21].</li>
+                    <li>Rigid Links.</li>
+                    <li>Flexible Links.</li>
+                    <li>Floating Links.</li>
                 </ul>
             </div>
             <div class="card">
                 <h3>2. Key Characteristics</h3>
                 <ul>
-                    <li>High Stiffness-to-Weight Ratio[ : 23].</li>
-                    <li>Low Mass & Inertia[ : 24].</li>
-                    <li>Integrated Internal Routing[ : 26].</li>
+                    <li>High Stiffness-to-Weight Ratio.</li>
+                    <li>Low Mass & Inertia.</li>
+                    <li>Integrated Internal Routing.</li>
                 </ul>
             </div>
             <div class="card">
                 <h3>3. Practical Uses</h3>
                 <ul>
-                    <li>Industrial material handling[ : 27].</li>
-                    <li>Surgical bots (Micro-precision)[ : 28].</li>
-                    <li>Exoskeletons[ : 30].</li>
+                    <li>Industrial material handling.</li>
+                    <li>Surgical bots (Micro-precision).</li>
+                    <li>Exoskeletons.</li>
                 </ul>
             </div>
             <div class="card">
                 <h3>4. Kinematic Parameters</h3>
                 <ul>
-                    <li>Link Length (a)[ : 31].</li>
-                    <li>Link Twist (α)[ : 32].</li>
-                    <li>D-H Modeling[ : 33].</li>
+                    <li>Link Length (a).</li>
+                    <li>Link Twist (α).</li>
+                    <li>D-H Modeling.</li>
                 </ul>
             </div>
         </div>
@@ -305,29 +393,29 @@
         <div class="content-grid" style="margin-bottom: 3rem;">
             <div class="card">
                 <h2>Rigid Links</h2>
-                <p style="color: var(--muted); margin-bottom: 1rem;">Idealized structural bodies with negligible deformation under load[ : 38, 39].</p>
+                <p style="color: var(--muted); margin-bottom: 1rem;">Idealized structural bodies with negligible deformation under load.</p>
                 <ul>
-                    <li>High modulus of elasticity[ : 41].</li>
-                    <li>Precision positional repeatability[ : 42].</li>
-                    <li>Used in heavy-duty welding arms[ : 42].</li>
+                    <li>High modulus of elasticity.</li>
+                    <li>Precision positional repeatability.</li>
+                    <li>Used in heavy-duty welding arms.</li>
                 </ul>
             </div>
             <div class="card">
                 <h2>Flexible Links</h2>
-                <p style="color: var(--muted); margin-bottom: 1rem;">Designed with purposeful compliance to absorb impact or minimize weight[ : 43, 44].</p>
+                <p style="color: var(--muted); margin-bottom: 1rem;">Designed with purposeful compliance to absorb impact or minimize weight.</p>
                 <ul>
-                    <li>Constructed from carbon fiber[ : 46].</li>
-                    <li>Used in space manipulators (ISS)[ : 47].</li>
-                    <li>Soft collaborative robots (Cobots)[ : 47].</li>
+                    <li>Constructed from carbon fiber.</li>
+                    <li>Used in space manipulators (ISS).</li>
+                    <li>Soft collaborative robots (Cobots).</li>
                 </ul>
             </div>
             <div class="card">
                 <h2>Floating Links</h2>
-                <p style="color: var(--muted); margin-bottom: 1rem;">Mobile links in a kinematic loop not directly grounded to the base[ : 48, 49].</p>
+                <p style="color: var(--muted); margin-bottom: 1rem;">Mobile links in a kinematic loop not directly grounded to the base.</p>
                 <ul>
-                    <li>Motion is dependent on adjacent links[ : 50].</li>
-                    <li>Used in Stewart Platforms[ : 52].</li>
-                    <li>Quadrupedal robot legs (Spot)[ : 52].</li>
+                    <li>Motion is dependent on adjacent links.</li>
+                    <li>Used in Stewart Platforms.</li>
+                    <li>Quadrupedal robot legs (Spot).</li>
                 </ul>
             </div>
         </div>
@@ -335,9 +423,9 @@
         <div class="card" style="margin-bottom: 3rem;">
             <h2>Engineering Characteristics</h2>
             <ul>
-                <li><strong>Mass Distribution:</strong> Localized closely to the proximal joint to minimize moment of inertia and actuator torque[ : 55, 56].</li>
-                <li><strong>High Rigidity-to-Weight:</strong> Prevents bending deflection using materials like titanium or aircraft-grade aluminum[ : 59, 60].</li>
-                <li><strong>Internal Hollow Routing:</strong> Structural cavities protect electrical buses, Ethernet, and pneumatic tubes[ : 61, 62].</li>
+                <li><strong>Mass Distribution:</strong> Localized closely to the proximal joint to minimize moment of inertia and actuator torque.</li>
+                <li><strong>High Rigidity-to-Weight:</strong> Prevents bending deflection using materials like titanium or aircraft-grade aluminum.</li>
+                <li><strong>Internal Hollow Routing:</strong> Structural cavities protect electrical buses, Ethernet, and pneumatic tubes.</li>
             </ul>
         </div>
 
@@ -357,19 +445,19 @@
                         <td>Automotive Factory</td>
                         <td>Rigid Link</td>
                         <td>Cast Iron / Aluminum</td>
-                        <td>Precision payload transport; high-speed spot-welding[ : 70].</td>
+                        <td>Precision payload transport; high-speed spot-welding.</td>
                     </tr>
                     <tr>
                         <td>Medical Surgery</td>
                         <td>Micro-Rigid Link</td>
                         <td>Stainless Steel</td>
-                        <td>Sub-millimeter tracking via AI computer vision[ : 70].</td>
+                        <td>Sub-millimeter tracking via AI computer vision.</td>
                     </tr>
                     <tr>
                         <td>Space Exploration</td>
                         <td>Flexible / Lightweight</td>
                         <td>Carbon Fiber Epoxy</td>
-                        <td>Minimizing weight for low-gravity mass moving[ : 70].</td>
+                        <td>Minimizing weight for low-gravity mass moving.</td>
                     </tr>
                 </tbody>
             </table>
@@ -378,6 +466,11 @@
 
     <div id="dof" class="page">
         <h1 class="hero">Degree of <span>Freedom</span></h1>
+        
+        <div class="category-image-container">
+            <img src="dof.jpg" alt="Degrees of Freedom Explanation Diagram" class="category-image">
+        </div>
+
         <div class="card" style="max-width: 800px; margin: 0 auto;">
             <h2>Core Concepts</h2>
             <ul>
