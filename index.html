@@ -91,13 +91,18 @@
             padding: 0.8rem 2rem; border-radius: 10px; cursor: pointer; transition: 0.3s;
         }
         .tab-btn.active { background: var(--accent); color: white; border-color: var(--accent); box-shadow: 0 0 15px var(--accent-glow); }
+        
+        /* Table Styles for Links */
+        .app-table { width: 100%; border-collapse: collapse; margin-top: 1rem; color: var(--muted); font-size: 0.95rem; }
+        .app-table th { text-align: left; color: var(--accent); border-bottom: 1px solid var(--border); padding: 10px; font-family: 'Orbitron'; font-size: 0.8rem; }
+        .app-table td { padding: 10px; border-bottom: 1px solid rgba(255,255,255,0.05); }
 
     </style>
 </head>
 <body>
 
     <nav>
-        <div class="logo">LEARN<span>ROBOTICS</span></div>
+        <div class="logo">ROBOTICS<span>PROJECT 9K</span></div>
         <div class="nav-links">
             <button onclick="showPage('home')">Home</button>
             <button onclick="showPage('motion')">Motion</button>
@@ -163,7 +168,7 @@
                     <ul>
                         <li>Velocity vectors remain parallel.</li>
                         <li>No rotational change in the body's orientation.</li>
-                        <li>Path is represented by straight lines.</li>
+                    <li>Path is represented by straight lines.</li>
                     </ul>
                 </div>
                 <div class="card">
@@ -231,74 +236,143 @@
             <div class="card">
                 <h2>Prismatic Joints</h2>
                 <h3>Characteristics</h3>
-                <ul>
-                    <li>Sliding / Translational motion between links.</li>
-                    <li>Restricts rotation entirely.</li>
-                </ul>
+                <ul><li>Sliding / Translational motion between links.</li><li>Restricts rotation entirely.</li></ul>
                 <h3>Advantages</h3>
-                <ul>
-                    <li>High mechanical rigidity.</li>
-                    <li>Precise linear tracking.</li>
-                </ul>
+                <ul><li>High mechanical rigidity.</li><li>Precise linear tracking.</li></ul>
             </div>
             <div class="card">
                 <h2>Revolute Joints</h2>
                 <h3>Characteristics</h3>
-                <ul>
-                    <li>Rotational movement around a hinge.</li>
-                    <li>Primary joint for articulated arms.</li>
-                </ul>
+                <ul><li>Rotational movement around a hinge.</li><li>Primary joint for articulated arms.</li></ul>
                 <h3>Advantages</h3>
-                <ul>
-                    <li>Wide range of motion.</li>
-                    <li>Compact and easy to actuate.</li>
-                </ul>
+                <ul><li>Wide range of motion.</li><li>Compact and easy to actuate.</li></ul>
             </div>
             <div class="card">
                 <h2>Spherical Joints</h2>
                 <h3>Characteristics</h3>
-                <ul>
-                    <li>Ball-and-socket type movement.</li>
-                    <li>Provides 3 Rotational Degrees of Freedom.</li>
-                </ul>
+                <ul><li>Ball-and-socket type movement.</li><li>Provides 3 Rotational Degrees of Freedom.</li></ul>
                 <h3>Advantages</h3>
-                <ul>
-                    <li>High dexterity in a small space.</li>
-                    <li>Mimics biological joint systems.</li>
-                </ul>
+                <ul><li>High dexterity in a small space.</li><li>Mimics biological joint systems.</li></ul>
             </div>
         </div>
     </div>
 
     <div id="links" class="page">
-        <h1 class="hero">Structural <span>Links</span></h1>
-        <div class="content-grid">
+        <h1 class="hero">Understanding <span>Links</span></h1>
+        
+        <div class="card" style="margin-bottom: 2.5rem;">
+            <h2>Kinematic Definition</h2>
+            <p style="color: var(--muted); line-height: 1.6;">A <strong>Link</strong> (kinematic element) is defined as a single, structurally rigid body (or a collection of rigidly connected bodies) within a robot that possesses relative motion with respect to other components. Links interconnect via joints to form <strong>kinematic chains</strong>.</p>
+        </div>
+
+        <h2 style="font-family: 'Orbitron'; font-size: 1.2rem; color: var(--accent); margin-bottom: 1.5rem;">Conceptual Mindmap Framework</h2>
+        <div class="content-grid" style="margin-bottom: 3rem;">
             <div class="card">
-                <h2>Rigid Link</h2>
-                <h3>Characteristics</h3>
+                <h3>1. Classifications</h3>
                 <ul>
-                    <li>Deformation is negligible under standard load.</li>
-                    <li>Fixed length and volume.</li>
-                </ul>
-                <h3>Advantages</h3>
-                <ul>
-                    <li>Easier kinematic modeling.</li>
-                    <li>Consistent positioning accuracy.</li>
+                    <li>Rigid Links[ : 18].</li>
+                    <li>Flexible Links[ : 20].</li>
+                    <li>Floating Links[ : 21].</li>
                 </ul>
             </div>
             <div class="card">
-                <h2>Soft Link</h2>
-                <h3>Characteristics</h3>
+                <h3>2. Key Characteristics</h3>
                 <ul>
-                    <li>Flexible, compliant materials.</li>
-                    <li>Changes shape based on environmental pressure.</li>
-                </ul>
-                <h3>Advantages</h3>
-                <ul>
-                    <li>Safe for direct human interaction.</li>
-                    <li>Grasping irregular or fragile objects.</li>
+                    <li>High Stiffness-to-Weight Ratio[ : 23].</li>
+                    <li>Low Mass & Inertia[ : 24].</li>
+                    <li>Integrated Internal Routing[ : 26].</li>
                 </ul>
             </div>
+            <div class="card">
+                <h3>3. Practical Uses</h3>
+                <ul>
+                    <li>Industrial material handling[ : 27].</li>
+                    <li>Surgical bots (Micro-precision)[ : 28].</li>
+                    <li>Exoskeletons[ : 30].</li>
+                </ul>
+            </div>
+            <div class="card">
+                <h3>4. Kinematic Parameters</h3>
+                <ul>
+                    <li>Link Length (a)[ : 31].</li>
+                    <li>Link Twist (α)[ : 32].</li>
+                    <li>D-H Modeling[ : 33].</li>
+                </ul>
+            </div>
+        </div>
+
+        <h2 style="font-family: 'Orbitron'; font-size: 1.2rem; color: var(--accent); margin-bottom: 1.5rem;">Structural Classifications</h2>
+        <div class="content-grid" style="margin-bottom: 3rem;">
+            <div class="card">
+                <h2>Rigid Links</h2>
+                <p style="color: var(--muted); margin-bottom: 1rem;">Idealized structural bodies with negligible deformation under load[ : 38, 39].</p>
+                <ul>
+                    <li>High modulus of elasticity[ : 41].</li>
+                    <li>Precision positional repeatability[ : 42].</li>
+                    <li>Used in heavy-duty welding arms[ : 42].</li>
+                </ul>
+            </div>
+            <div class="card">
+                <h2>Flexible Links</h2>
+                <p style="color: var(--muted); margin-bottom: 1rem;">Designed with purposeful compliance to absorb impact or minimize weight[ : 43, 44].</p>
+                <ul>
+                    <li>Constructed from carbon fiber[ : 46].</li>
+                    <li>Used in space manipulators (ISS)[ : 47].</li>
+                    <li>Soft collaborative robots (Cobots)[ : 47].</li>
+                </ul>
+            </div>
+            <div class="card">
+                <h2>Floating Links</h2>
+                <p style="color: var(--muted); margin-bottom: 1rem;">Mobile links in a kinematic loop not directly grounded to the base[ : 48, 49].</p>
+                <ul>
+                    <li>Motion is dependent on adjacent links[ : 50].</li>
+                    <li>Used in Stewart Platforms[ : 52].</li>
+                    <li>Quadrupedal robot legs (Spot)[ : 52].</li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="card" style="margin-bottom: 3rem;">
+            <h2>Engineering Characteristics</h2>
+            <ul>
+                <li><strong>Mass Distribution:</strong> Localized closely to the proximal joint to minimize moment of inertia and actuator torque[ : 55, 56].</li>
+                <li><strong>High Rigidity-to-Weight:</strong> Prevents bending deflection using materials like titanium or aircraft-grade aluminum[ : 59, 60].</li>
+                <li><strong>Internal Hollow Routing:</strong> Structural cavities protect electrical buses, Ethernet, and pneumatic tubes[ : 61, 62].</li>
+            </ul>
+        </div>
+
+        <h2 style="font-family: 'Orbitron'; font-size: 1.2rem; color: var(--accent); margin-bottom: 1.5rem;">Real-World Application Summary</h2>
+        <div class="card">
+            <table class="app-table">
+                <thead>
+                    <tr>
+                        <th>Environment</th>
+                        <th>Link Type</th>
+                        <th>Material</th>
+                        <th>Al/Robotics Purpose</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>Automotive Factory</td>
+                        <td>Rigid Link</td>
+                        <td>Cast Iron / Aluminum</td>
+                        <td>Precision payload transport; high-speed spot-welding[ : 70].</td>
+                    </tr>
+                    <tr>
+                        <td>Medical Surgery</td>
+                        <td>Micro-Rigid Link</td>
+                        <td>Stainless Steel</td>
+                        <td>Sub-millimeter tracking via AI computer vision[ : 70].</td>
+                    </tr>
+                    <tr>
+                        <td>Space Exploration</td>
+                        <td>Flexible / Lightweight</td>
+                        <td>Carbon Fiber Epoxy</td>
+                        <td>Minimizing weight for low-gravity mass moving[ : 70].</td>
+                    </tr>
+                </tbody>
+            </table>
         </div>
     </div>
 
